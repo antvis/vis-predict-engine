@@ -1,0 +1,48 @@
+{
+  "name": "@antv/vis-predict-engine",
+  "version": "0.0.0",
+  "description": "visualization predict engine",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antvis/vis-predict-engine"
+  },
+  "license": "MIT",
+  "author": "https://github.com/orgs/antvis/people",
+  "main": "src/index.ts",
+  "files": [
+    "package.json",
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "start": "father build --watch",
+    "build": "npm run clean && father build",
+    "clean": "rimraf es esm lib dist",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx --format=pretty \"./\"",
+    "prettier": "prettier -c --write \"**/*\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --ext .js,.jsx,.ts,.tsx",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^7.13.0",
+    "father": "^2.29.11",
+    "lint-staged": "^10.5.1",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.1.2",
+    "rimraf": "^3.0.2"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs": "^2.7.0"
+  }
+}
