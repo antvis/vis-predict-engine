@@ -22,7 +22,6 @@ module.exports = {
     'guard-for-in': 0,
     'no-restricted-globals': 0,
     'max-classes-per-file': 0,
-    // 后面需要去掉
     'no-restricted-syntax': 0,
     'prefer-spread': 0,
     '@typescript-eslint/camelcase': 0,
