@@ -8,8 +8,7 @@ let model: any = null;
 
 const load = tf
   .loadLayersModel(
-    // 'https://gw.alipayobjects.com/os/bmw-prod/0dbe89ff-b325-458f-85dd-5025866a4870.json',
-    'https://gw-office.alipayobjects.com/bmw-prod/d6ba24de-1587-45ab-a2c8-1f1d17488db4.json'
+    'https://gw.alipayobjects.com/os/bmw-prod/0dbe89ff-b325-458f-85dd-5025866a4870.json',
   )
   .then(loadedModel => {
     model = loadedModel;
