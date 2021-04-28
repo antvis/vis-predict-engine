@@ -24,18 +24,15 @@ export interface GraphData {
   edges: Edge[];
 }
 
-export enum Layout {
-  force = 'force',
-  radial = 'radial',
-}
+export type Layout =  'force' | 'radial' | 'concentric' | 'circular' ;
 
 export interface FinalNode {
   id: string;
 }
 
 export interface FinalEdge {
-  source: string;
-  target: string;
+  source?: string;
+  target?: string;
   from: string;
   to: string;
 }
