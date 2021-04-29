@@ -3,7 +3,7 @@ import * as tf from '@tensorflow/tfjs';
 
 class GraphPoolingLayer extends tf.layers.Layer {
   computeOutputShape(inputShape) {
-    return [1, 2];
+    return [1, 4];
   }
 
   call(inputs) {

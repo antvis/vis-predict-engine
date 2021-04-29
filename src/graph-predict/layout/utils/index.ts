@@ -1,5 +1,5 @@
 import * as tf from '@tensorflow/tfjs';
-import { Node, Edge, GraphData, Layout, PlainObject, FinalNode, FinalEdge } from '../../types';
+import { GraphData, Layout, PlainObject, FinalNode, FinalEdge } from '../../types';
 
 export const featureProcess = (nodes: FinalNode[], edges: FinalEdge[], featureCount: number) => {
   const nodesMap: PlainObject = {};
@@ -69,14 +69,12 @@ export const transGraphData = (data: GraphData) => {
   const nodesData: FinalNode[] = [];
   const edgesData: FinalEdge[]= [];
   nodes.forEach(item => {
-    nodesData.push({ id: `${item.id}` });
+    nodesData.push({ id: String(item.id) });
   });
-  edges.forEach(item => {
+  edges.forEach(edge => {
     edgesData.push({
-      from: `${item.source}`,
-      to: `${item.target}`,
-      source: `${item.source}`,
-      target: `${item.target}`,
+      from: String(edge.source || edge.from ),
+      to: String(edge.target || edge.to ),
     });
   });
   return {
@@ -85,13 +83,15 @@ export const transGraphData = (data: GraphData) => {
   };
 };
 
-export const predictLog = (expectLayout: Layout, predictedRes: Layout, confidence: string) => {
-  console.log('%c@antv/vis-predict-engine布局预测', 'color: #99CCCC;font-size: 16px;');
-  console.log(
-    '%c期望布局',
-    'background: #FFCC99;color:#fff;padding:5px;border-radius:5px;',
-    expectLayout || '',
-  );
+export const predictLog = (predictedRes: Layout, confidence: string, expectLayout?: Layout | undefined) => {
+  console.log('%c@antv/vis-predict-engine图布局预测', 'color: #99CCCC;font-size: 16px;');
+  if(expectLayout){
+    console.log(
+      '%c期望布局',
+      'background: #FFCC99;color:#fff;padding:5px;border-radius:5px;',
+      expectLayout,
+    );
+  }
   console.log(
     '%c预测布局',
     'background: #CCCCFF;color: #fff;padding:5px;border-radius:5px;',
