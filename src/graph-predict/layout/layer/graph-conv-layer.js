@@ -44,8 +44,7 @@ class GraphConvLayer extends tf.layers.Layer {
   call(inputs) {
     return tf.tidy(() => {
       const featureShape = inputs[0].shape;
-      // 兼容特征大小为1的时候
-      const features = (featureShape[0] === 1 && inputs[0].squeeze([0])) || inputs[0];
+      const features = (featureShape[0] === 1 && inputs[0].squeeze([0])) || inputs[0]; // 兼容特征大小为1的时候
       const basis = inputs[1].squeeze([0]);
       let output = tf.dot(basis, features);
       output = tf.dot(output, this.kernel.read());

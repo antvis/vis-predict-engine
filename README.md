@@ -1,7 +1,7 @@
 # @antv/vis-predict-engine 可视化预测引擎
 
 ## 图布局预测
-目前布局预测的模型由本引擎内置，支持force/radial/concentric/circular的四布局分类，后续将支持更多布局。
+目前布局预测的模型由本引擎内置，支持force/radial/concentric/circular的四布局分类，后续将支持更多布局分类。
 
 ### 使用方法
 ```
@@ -139,11 +139,9 @@ async function layoutPredict() {
 }
 
 (async function () {
-  // predictLayout 表示预测的布局，如 force 或 radial
+  // predictLayout 表示预测的布局：force | radial | concentric | circular
   // confidence 表示预测的可信度
   const { predictLayout, confidence } = await layoutPredict();
-  console.log("----predictLayout---", predictLayout);
-  console.log("----confidence---", confidence);
   const container = document.getElementById("root");
   const graph = new G6.Graph({
     container,

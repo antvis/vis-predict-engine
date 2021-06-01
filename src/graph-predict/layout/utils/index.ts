@@ -47,7 +47,7 @@ export const featureProcess = (nodes: FinalNode[], edges: FinalEdge[], featureCo
   const adjTensor = tf.tensor2d(adjacentMatrix);
   const featureTensor = tf.tensor2d(featureMatrix);
   // @ts-ignore
-  const D = tf.diag(tf.pow(adjTensor.sum(1), tf.tensor(-0.5)).flatten(), 0);
+  const D = tf.diag(tf.pow(adjTensor.sum(1), tf.tensor(-0.5)).flatten(), 0); // 加权平均邻接特征
   const adjNormlized = adjTensor
     .dot(D)
     .transpose()
